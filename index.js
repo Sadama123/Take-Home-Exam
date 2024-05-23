@@ -11,7 +11,7 @@ const port = 3000;
 var userIsAuthorised = false;
 
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(express.static("public"))
 
 function userCheck(req, res, next) {
   const username = req.body["username"]
@@ -25,7 +25,7 @@ function userCheck(req, res, next) {
  app.use(userCheck);
 
  app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/public/index.html");
+  res.sendFile(__dirname + "/public/index.ejs");
  
   });
 
@@ -34,7 +34,7 @@ function userCheck(req, res, next) {
     if (userIsAuthorised) {
       res.render(__dirname + "/public/item.ejs");
     } else {
-      res.sendFile(__dirname + "/public/index.html");
+      res.sendFile(__dirname + "/public/index.ejs");
     }
   });
 
