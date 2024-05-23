@@ -30,7 +30,7 @@ function userCheck(req, res, next) {
 
   app.post("/submit", (req, res) => {
     if (userIsAuthorised) {
-      res.sendFile(__dirname + "/public/item.html");
+      res.sendFile(__dirname + "/public/item.ejs");
     } else {
       res.sendFile(__dirname + "/public/index.html");
     }
