@@ -2,6 +2,7 @@ import express from "express";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import bodyParser from "body-parser";
+import axios from "axios";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
@@ -17,6 +18,7 @@ function userCheck(req, res, next) {
     const password = req.body["password"];
     if (username === "admin" && password === "thereisnopassword") {
       userIsAuthorised = true;
+      //temporary login
     }
     next();
   }
@@ -30,7 +32,7 @@ function userCheck(req, res, next) {
 
   app.post("/submit", (req, res) => {
     if (userIsAuthorised) {
-      res.sendFile(__dirname + "/public/item.ejs");
+      res.render(__dirname + "/public/item.ejs");
     } else {
       res.sendFile(__dirname + "/public/index.html");
     }
