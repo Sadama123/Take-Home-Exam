@@ -25,7 +25,7 @@ function userCheck(req, res, next) {
  app.use(userCheck);
 
  app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/public/index.ejs");
+  res.sendFile("/public/index.html");
  
   });
 
@@ -34,7 +34,7 @@ function userCheck(req, res, next) {
     if (userIsAuthorised) {
       res.render(__dirname + "/public/item.ejs");
     } else {
-      res.sendFile(__dirname + "/public/index.ejs");
+      res.sendFile(__dirname + "/public/index.html");
     }
   });
 
