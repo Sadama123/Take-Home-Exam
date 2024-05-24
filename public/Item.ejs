@@ -4,54 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
     <div class="container">
-        <h1>Let's find something for you to do ✌️</h1>
+        <h1>Inventory System ✌️</h1>
     
-        <form action="/" id="form" class="form" method="POST">
-          <select name="type" class="form-select">
-            <option value="" data-display="Select">Random type</option>
-            <option value="education">Education</option>
-            <option value="charity">Charity</option>
-            <option value="recreational">Recreational</option>
-            <option value="relaxation">Relaxation</option>
-            <option value="busywork">Busywork</option>
-            <option value="social">Social</option>
-            <option value="diy">DIY</option>
-            <option value="music">Music</option>
+        <form action="/check" id="form" class="button" method="POST">
+          <select name="items" class="form-select">
+            <option value="Category" data-display="">ProductCode</option>
+            <option value="rice" name="select">001</option>
+            <option value="salt"name="select">002</option>
+            <option value="cooking oil" name="select">003</option>
+            <option value="coffee" name="select">004</option>
+            <option value="sugar" name="select">005</option>
+            <option value="bread" name="select">006</option>
+            <option value="onion" name="select">007</option>
+            <option value="garlic" name="select">008</option>
+            <option value="eggs" name="select">009</option>
+            <option value="pork meat" name="select">010</option>
+            <option value="beef meat" name="select">011</option>
+            <option value="chicken meat" name="select">012</option>
+            <option value="vinegar"name="select">013</option>
+            <option value="ajinomoto" name="select">014</option>
+            <option value="instant noodles" name="select">015</option>
+            <option value="biscuits" name="select">016</option>
+            <option value="tomatoes" name="select">017</option>
+            <option value="eggplant" name="select">018</option>
+            <option value="powedered milk" name="select">019</option>
+            
           </select>
-          <select name="participants" class="form-select">
-            <option value="">Any number of people</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
+          <select name="participants" class="form-select ">
+            <option value="">option</option>
+            <option value="1">filter(not functional)</option>
+            <option value="2">sort(not functional)</option>
+            <option value="3">Category(not functional)</option>
+            
           </select>
-          <button type="submit" class="form-submit">Go</button>
+          <button type="submit" class="btn ">Select</button>
         </form>
-        <section id="cards" class="cards">
-          <article class="card-item">
-            <h2 class="card-activity">
-              <!-- Show Activity -->
+        <div id="itemContainer" class="hidden">
+          <%if (locals.items) {%>
+
+            <h2 id="recipeTitle">
+              <%= item.ProductCode%>
             </h2>
-            <div class="card-info">
-              <span class="card-type">
-                <!-- Show Activity type -->
-              </span>
-              <span class="card-participants">
-                <!-- participants: Show participant number -->
-                <span class="card-number"></span>
-              </span>
-            </div>
-          </article>
-    
-    
-          <div id="tag-error" class="tag-error">
-            <!-- Show any errors that were sent from the backend -->
-          </div>
-    
-        </section>
+            
+            <%} else {%>
+              <h2>NO display</h2>
+              <%}%>
+        </div>
+
+        
       </div>
     
 </body>
